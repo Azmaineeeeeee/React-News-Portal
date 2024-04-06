@@ -24,9 +24,26 @@ const HomeContent = ({news}) => {
 
            <img src = {news.image_url} className="w-full h-44 object-fit p-2"></img>
 
-          {
-            news.details.length > 200 ? <p className="text-sm">{news.details.slice(0,200)}  <Link to = {`/news/${news._id}`}className="text-red-500 text-bold">Read More...</Link></p> : <p className="text-sm">{news.details}</p>
-          }
+          
+
+
+
+
+{
+    news.details.length > 200 ? (
+        <p className="text-sm">
+            {news.details.slice(0, 200)}{" "}
+            <Link
+                to={`/news/${news._id}`}
+                className="text-red-500 font-bold"
+            >
+                Read More...
+            </Link>
+        </p>
+    ) : (
+        <p className="text-sm">{news.details}</p>
+    )
+}
 
           
 
