@@ -1,11 +1,13 @@
-import { useContext } from "react";
+
 import Navbar from "../Shared/Navbar/Navbar";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../Providers/AuthProvider";
+
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../FireBase/firebase.config";
 
 const Register = () => {
 
-    const {createUser} = useContext(AuthContext)
+   
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -14,9 +16,17 @@ const Register = () => {
     const password = form.get("password");
     const name = form.get("name");
     console.log(email, password, name);
-    createUser(email,password)
-    .then(res => console.log(res.user))
-    .catch(error => console.log(error))
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      
+      const user = userCredential.user;
+      
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    
+    });
   };
   return (
     <div>

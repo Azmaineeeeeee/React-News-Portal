@@ -14,11 +14,12 @@ const Home = () => {
       <Header></Header>
       <Breaking></Breaking>
       <Navbar></Navbar>
-      <div className="flex md:flex-row flex-col gap-6">
-        <div className="w-1/4">
+      <div className="flex md:flex-row flex-col gap-2">
+        <div className="lg:w-1/4 w-full">
           <LeftNav></LeftNav>
         </div>
-        <div className="w-1/2">
+        {/* <div className="md:flex"> */}
+        <div className="w-1/3">
           <h2 className="text-lg font-bold">News Portal Home</h2>
            <div>
            {
@@ -26,9 +27,10 @@ const Home = () => {
            }
            </div>
         </div>
-        <div className="w-1/4">
+        <div className="md:w-1/4 w-1/3 mx-auto">
           <RightNav></RightNav>
         </div>
+        {/* </div> */}
       </div>
     </div>
   );

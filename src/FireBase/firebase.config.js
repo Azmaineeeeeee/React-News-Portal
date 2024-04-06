@@ -2,12 +2,15 @@ import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_apiKey ,
-  authDomain: import.meta.env. VITE_authDomain ,
-  projectId: import.meta.env. VITE_projectId ,
-  storageBucket: import.meta.env. VITE_storageBucket  ,
-  messagingSenderId: import.meta.env.VITE_messagingSenderId  ,
-  appId: import.meta.env. VITE_appId
+ 
+    apiKey: "AIzaSyBk5ZwOKuzP_m8oPvC1N30lZV0P8d60EYM",
+    authDomain: "news-portal-23c01.firebaseapp.com",
+    databaseURL: "https://news-portal-23c01-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "news-portal-23c01",
+    storageBucket: "news-portal-23c01.appspot.com",
+    messagingSenderId: "667426226764",
+    appId: "1:667426226764:web:6890d9a39f2ca0f8ef2ae9"
+  
 };
 
 

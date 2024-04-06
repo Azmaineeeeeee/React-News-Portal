@@ -4,12 +4,29 @@ import image1 from "../../assets/assets/qZone1.png"
 import image2 from "../../assets/assets/qZone2.png"
 import image3 from "../../assets/assets/qZone3.png"
 
+import { auth } from "../../FireBase/firebase.config";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useLocation,useNavigate } from 'react-router-dom';
+
 const RightNav = () => {
+  const googleProvider = new GoogleAuthProvider();
+  const location = useLocation()
+  const navigate = useNavigate()
+ 
+
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, googleProvider)
+    .then(res => {
+      console.log(res.user)
+      navigate(location?.state ? location.state : '/')
+
+    })
+  }
   return (
     <div>
      <div className="mb-4">
      <h2 className="text-lg font-bold mb-2">Login With</h2>
-      <button className="btn border-blue-500 border-2 text-blue-700 mb-2 w-[250px] bg-white">
+      <button onClick={() => handleGoogleSignIn()} className="btn border-blue-500 border-2 text-blue-700 mb-2 w-[250px] bg-white">
         <FaGoogle />
         Login with Google
       </button>
